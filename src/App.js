@@ -7,6 +7,7 @@ import './App.css';
 
 class App extends Component {
   state = {
+    query: '',
     gallery: [],
     currentPage: 1,
     searchQuery: '',
@@ -21,9 +22,15 @@ class App extends Component {
     }));
   };
 
+  onOpenModal = event => {
+    event.preventDefault();
+
+    const onImage = event.currentTarget;
+    console.log(onImage);
+  };
+
   render() {
-    const { showModal } = this.state;
-    // console.log(showModal);
+    const { gallery, showModal } = this.state;
 
     return (
       <Container>
@@ -33,11 +40,14 @@ class App extends Component {
           Open Modal
         </button> */}
 
-        {/* {showModal && (
-          <Modal onClose={this.toggleModal}>
-            <ImageGalleryItem></ImageGalleryItem>
+        {showModal && (
+          <Modal onClose={this.toggleModal} onOpen={this.onOpenModal}>
+            <ImageGalleryItem
+              largeImageURL={gallery.largeImageURL}
+              tags={gallery.tags}
+            ></ImageGalleryItem>
           </Modal>
-        )} */}
+        )}
       </Container>
     );
   }

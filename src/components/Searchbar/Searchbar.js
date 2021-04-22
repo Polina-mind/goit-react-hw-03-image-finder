@@ -3,11 +3,14 @@ import PropTypes from 'prop-types';
 import './Searchbar.css';
 
 class Searchbar extends Component {
-  state = { query: '' };
+  state = {
+    query: '',
+    gallery: [],
+  };
 
   handleChange = e => {
     this.setState({ query: e.currentTarget.value });
-    console.log(e.currentTarget.value, this.state.query);
+    // console.log(e.currentTarget.value, this.state.query);
   };
 
   handleSubmit = e => {

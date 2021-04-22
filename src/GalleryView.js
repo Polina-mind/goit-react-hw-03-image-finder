@@ -6,6 +6,7 @@ import galleryApi from './galleryApi';
 
 class GalleryView extends Component {
   state = {
+    query: '',
     gallery: [],
     currentPage: 1,
     searchQuery: '',
@@ -23,7 +24,7 @@ class GalleryView extends Component {
     this.setState({
       searchQuery: query,
       currentPage: 1,
-      articles: [],
+      gallery: [],
       error: null,
     });
   };
