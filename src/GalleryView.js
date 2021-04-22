@@ -47,6 +47,14 @@ class GalleryView extends Component {
       .finally(() => this.setState({ isLoading: false }));
   };
 
+  openModal = event => {
+    event.preventDefault();
+    console.log('Click');
+
+    const onImage = event.currentTarget.src;
+    console.log(onImage);
+  };
+
   render() {
     const { gallery, isLoading, error } = this.state;
     const ifGallery = gallery.length ? true : false;
@@ -56,7 +64,7 @@ class GalleryView extends Component {
         {error && <h1>Error!</h1>}
         <Searchbar onSubmit={this.onChangeQuery} />
 
-        <ImageGallery gallery={gallery}></ImageGallery>
+        <ImageGallery gallery={gallery} onClick={this.openModal}></ImageGallery>
 
         {isLoading && <p>Loading...</p>}
         {ifGallery && <Button onClick={this.fetchGallery}></Button>}

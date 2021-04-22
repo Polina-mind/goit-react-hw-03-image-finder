@@ -22,13 +22,6 @@ class App extends Component {
     }));
   };
 
-  onOpenModal = event => {
-    event.preventDefault();
-
-    const onImage = event.currentTarget;
-    console.log(onImage);
-  };
-
   render() {
     const { gallery, showModal } = this.state;
 
@@ -36,16 +29,16 @@ class App extends Component {
       <Container>
         <GalleryView></GalleryView>
 
-        {/* <button type="button" onClick={this.toggleModal}>
+        {/* <button type="button" className="Button" onClick={this.toggleModal}>
           Open Modal
         </button> */}
 
         {showModal && (
-          <Modal onClose={this.toggleModal} onOpen={this.onOpenModal}>
-            <ImageGalleryItem
+          <Modal onClose={this.toggleModal}>
+            {/* <ImageGalleryItem
               largeImageURL={gallery.largeImageURL}
               tags={gallery.tags}
-            ></ImageGalleryItem>
+            ></ImageGalleryItem> */}
           </Modal>
         )}
       </Container>

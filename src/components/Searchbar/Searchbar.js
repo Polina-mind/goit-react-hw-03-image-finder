@@ -5,7 +5,6 @@ import './Searchbar.css';
 class Searchbar extends Component {
   state = {
     query: '',
-    gallery: [],
   };
 
   handleChange = e => {

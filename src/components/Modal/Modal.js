@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 // import { createPortal } from 'react-dom';
+import ImageGalleryItem from '../ImageGalleryItem';
 import './Modal.css';
 
 // const modalRoot = document.querySelector('#modal-root');
 
 export default class Modal extends Component {
+  state = {
+    gallery: [],
+  };
+
   componentDidMount() {
     window.addEventListener('keydown', this.handleKeyDown);
   }
@@ -25,12 +30,25 @@ export default class Modal extends Component {
     }
   };
 
+  openModal = event => {
+    event.preventDefault();
+    console.log('Click');
+
+    const onImage = event.currentTarget.src;
+    console.log(event);
+  };
+
   render() {
     return (
       <div className="Overlay" onClick={this.handleBackdropClick}>
         <div className="Modal">
           {this.props.children}
-          {/* <img src="" alt="" /> */}
+          {/* <img src={} alt="" /> */}
+          {/* <ImageGalleryItem
+            onClick={this.openModal}
+            largeImageURL={this.gallery.largeImageURL}
+            tags={this.gallery.tags}
+          ></ImageGalleryItem> */}
         </div>
       </div>
     );
