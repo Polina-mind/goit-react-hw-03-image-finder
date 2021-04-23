@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Container from './components/Container';
 import Modal from './components/Modal';
-
 import GalleryView from './GalleryView';
 import './App.css';
 
@@ -14,6 +13,15 @@ class App extends Component {
     isLoading: false,
     error: null,
     showModal: false,
+    largeImageURL: '',
+  };
+
+  openModal = event => {
+    const largeImageUrl = event.target.dataset.source;
+    console.log('largeImageUrl', largeImageUrl);
+    this.setState({ largeImageURL: largeImageUrl });
+
+    this.toggleModal();
   };
 
   toggleModal = () => {
@@ -27,13 +35,13 @@ class App extends Component {
 
     return (
       <Container>
-        <GalleryView></GalleryView>
+        <GalleryView openModal={this.openModal}></GalleryView>
 
-        {/* <button type="button" className="Button" onClick={this.toggleModal}>
-          Open Modal
-        </button> */}
-
-        {showModal && <Modal onClick={this.toggleModal}></Modal>}
+        {showModal && (
+          <Modal onClick={this.openModal} onClose={this.toggleModal}>
+            <img src={this.state.largeImageURL} alt="" />
+          </Modal>
+        )}
       </Container>
     );
   }

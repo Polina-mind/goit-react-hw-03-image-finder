@@ -48,22 +48,6 @@ class GalleryView extends Component {
       .finally(() => this.setState({ isLoading: false }));
   };
 
-  openModal = event => {
-    // const imageUrl = event.currentTarget;
-
-    const largeImageUrl = event.target.dataset.source;
-    console.log('largeImageUrl', largeImageUrl);
-    this.setState({ largeImageURL: largeImageUrl });
-
-    this.toggleModal();
-  };
-
-  toggleModal = () => {
-    this.setState(({ showModal }) => ({
-      showModal: !showModal,
-    }));
-  };
-
   render() {
     const { gallery, isLoading, error } = this.state;
     const ifGallery = gallery.length ? true : false;
@@ -73,7 +57,10 @@ class GalleryView extends Component {
         {error && <h1>Error!</h1>}
         <Searchbar onSubmit={this.onChangeQuery} />
 
-        <ImageGallery gallery={gallery} onClick={this.openModal}></ImageGallery>
+        <ImageGallery
+          gallery={gallery}
+          onClick={this.props.openModal}
+        ></ImageGallery>
 
         {isLoading && <p>Loading...</p>}
         {ifGallery && <Button onClick={this.fetchGallery}></Button>}

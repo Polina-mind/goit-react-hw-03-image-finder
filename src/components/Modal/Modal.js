@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+// import { createPortal } from 'react-dom';
 import './Modal.css';
+
+// const modalRoot = document.querySelector('#modal-root');
 
 export default class Modal extends Component {
   state = {
@@ -30,14 +33,15 @@ export default class Modal extends Component {
   render() {
     return (
       <div className="Overlay" onClick={this.handleBackdropClick}>
-        <div className="Modal">
-          <img
-            className="ImageGalleryItem-image"
-            src={this.state.largeImageURL}
-            alt=""
-          />
-        </div>
+        <div className="Modal">{this.props.children}</div>
       </div>
     );
+
+    // createPortal(
+    //   <div className="Overlay" onClick={this.handleBackdropClick}>
+    //     <div className="Modal">{this.props.children}</div>
+    //   </div>,
+    //   modalRoot,
+    // );
   }
 }
