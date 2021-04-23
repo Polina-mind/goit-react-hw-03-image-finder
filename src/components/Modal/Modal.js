@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ImageGalleryItem from '../ImageGalleryItem';
 import './Modal.css';
 
 export default class Modal extends Component {
@@ -32,8 +31,11 @@ export default class Modal extends Component {
     return (
       <div className="Overlay" onClick={this.handleBackdropClick}>
         <div className="Modal">
-          {/* <img src={this.state.largeImageURL} alt="" /> */}
-          <ImageGalleryItem src={this.state.largeImageURL}></ImageGalleryItem>
+          <img
+            className="ImageGalleryItem-image"
+            src={this.state.largeImageURL}
+            alt=""
+          />
         </div>
       </div>
     );

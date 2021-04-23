@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Container from './components/Container';
 import Modal from './components/Modal';
-// import ImageGalleryItem from './components/ImageGalleryItem';
+
 import GalleryView from './GalleryView';
 import './App.css';
 

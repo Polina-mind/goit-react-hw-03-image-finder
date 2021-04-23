@@ -2,17 +2,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './ImageGalleryItem.css';
 
-const ImageGalleryItem = ({ src }) => {
+const ImageGalleryItem = ({ src, alt, dataSource }) => {
   return (
-    <li className="ImageGalleryItem">
-      <img src={src} alt="" className="ImageGalleryItem-image" />
-    </li>
+    <img
+      src={src}
+      alt={alt}
+      data-source={dataSource}
+      className="ImageGalleryItem-image"
+    />
   );
 };
 
 ImageGalleryItem.protoTypes = {
   src: PropTypes.string.isRequired,
-  // tags: PropTypes.string.isRequired,
+  alt: PropTypes.string.isRequired,
+  dataSource: PropTypes.string.isRequired,
 };
 
 export default ImageGalleryItem;
