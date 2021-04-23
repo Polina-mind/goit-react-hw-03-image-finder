@@ -26,6 +26,7 @@ class GalleryView extends Component {
       currentPage: 1,
       gallery: [],
       error: null,
+      largeImageURL: '',
     });
   };
 
@@ -48,11 +49,19 @@ class GalleryView extends Component {
   };
 
   openModal = event => {
-    event.preventDefault();
-    console.log('Click');
+    // const imageUrl = event.currentTarget;
 
-    const onImage = event.currentTarget.src;
-    console.log(onImage);
+    const largeImageUrl = event.target.dataset.source;
+    console.log('largeImageUrl', largeImageUrl);
+    this.setState({ largeImageURL: largeImageUrl });
+
+    this.toggleModal();
+  };
+
+  toggleModal = () => {
+    this.setState(({ showModal }) => ({
+      showModal: !showModal,
+    }));
   };
 
   render() {

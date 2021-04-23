@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './ImageGallery.css';
 
-const ImageGallery = ({ gallery, tags, onClick, largeImageURL }) => {
+const ImageGallery = ({ gallery, onClick }) => {
   return (
     <ul className="ImageGallery">
-      {gallery.map(({ id, webformatURL }) => (
+      {gallery.map(({ id, webformatURL, largeImageURL, tags }) => (
         <li className="ImageGalleryItem" key={id}>
           <img
             onClick={onClick}
@@ -22,11 +22,7 @@ const ImageGallery = ({ gallery, tags, onClick, largeImageURL }) => {
 
 ImageGallery.protoTypes = {
   gallery: PropTypes.array.isRequired,
-  id: PropTypes.string.isRequired,
-  webformatURL: PropTypes.string.isRequired,
-  tags: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
-  largeImageURL: PropTypes.string.isRequired,
 };
 
 export default ImageGallery;

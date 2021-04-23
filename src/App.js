@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Container from './components/Container';
 import Modal from './components/Modal';
-import ImageGalleryItem from './components/ImageGalleryItem';
+// import ImageGalleryItem from './components/ImageGalleryItem';
 import GalleryView from './GalleryView';
 import './App.css';
 
@@ -23,7 +23,7 @@ class App extends Component {
   };
 
   render() {
-    const { gallery, showModal } = this.state;
+    const { showModal } = this.state;
 
     return (
       <Container>
@@ -33,14 +33,7 @@ class App extends Component {
           Open Modal
         </button> */}
 
-        {showModal && (
-          <Modal onClose={this.toggleModal}>
-            {/* <ImageGalleryItem
-              largeImageURL={gallery.largeImageURL}
-              tags={gallery.tags}
-            ></ImageGalleryItem> */}
-          </Modal>
-        )}
+        {showModal && <Modal onClick={this.toggleModal}></Modal>}
       </Container>
     );
   }

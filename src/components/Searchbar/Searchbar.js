@@ -9,7 +9,6 @@ class Searchbar extends Component {
 
   handleChange = e => {
     this.setState({ query: e.currentTarget.value });
-    // console.log(e.currentTarget.value, this.state.query);
   };
 
   handleSubmit = e => {
