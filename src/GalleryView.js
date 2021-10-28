@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Searchbar from './components/Searchbar';
 import ImageGallery from './components/ImageGallery';
 import Button from './components/Button';
-import galleryApi from './galleryApi';
+import FetchGallery from './galleryApi';
 
 class GalleryView extends Component {
   state = {
@@ -36,8 +37,7 @@ class GalleryView extends Component {
 
     this.setState({ isLoading: true });
 
-    galleryApi
-      .fetchGallery(options)
+    FetchGallery(options)
       .then(gallery => {
         this.setState(prevState => ({
           gallery: [...prevState.gallery, ...gallery],
@@ -50,7 +50,6 @@ class GalleryView extends Component {
 
   render() {
     const { gallery, isLoading, error } = this.state;
-    const ifGallery = gallery.length ? true : false;
 
     return (
       <div>
@@ -63,10 +62,14 @@ class GalleryView extends Component {
         ></ImageGallery>
 
         {isLoading && <p>Loading...</p>}
-        {ifGallery && <Button onClick={this.fetchGallery}></Button>}
+        {gallery.length > 0 && <Button onClick={this.fetchGallery}></Button>}
       </div>
     );
   }
 }
+
+GalleryView.propTypes = {
+  openModal: PropTypes.func.isRequired,
+};
 
 export default GalleryView;

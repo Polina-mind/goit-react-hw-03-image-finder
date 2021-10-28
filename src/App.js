@@ -18,7 +18,6 @@ class App extends Component {
 
   openModal = event => {
     const largeImageUrl = event.target.dataset.source;
-    console.log('largeImageUrl', largeImageUrl);
     this.setState({ largeImageURL: largeImageUrl });
 
     this.toggleModal();

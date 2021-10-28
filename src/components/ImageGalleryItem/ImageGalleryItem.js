@@ -13,7 +13,7 @@ const ImageGalleryItem = ({ src, alt, dataSource }) => {
   );
 };
 
-ImageGalleryItem.protoTypes = {
+ImageGalleryItem.propTypes = {
   src: PropTypes.string.isRequired,
   alt: PropTypes.string.isRequired,
   dataSource: PropTypes.string.isRequired,

@@ -20,7 +20,7 @@ const ImageGallery = ({ gallery, onClick }) => {
   );
 };
 
-ImageGallery.protoTypes = {
+ImageGallery.propTypes = {
   gallery: PropTypes.array.isRequired,
   onClick: PropTypes.func.isRequired,
 };

@@ -10,7 +10,7 @@ const Button = ({ onClick }) => {
   );
 };
 
-Button.protoTypes = {
+Button.propTypes = {
   onClick: PropTypes.func.isRequired,
 };
 
