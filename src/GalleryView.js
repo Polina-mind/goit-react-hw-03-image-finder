@@ -45,7 +45,13 @@ class GalleryView extends Component {
         }));
       })
       .catch(error => this.setState({ error }))
-      .finally(() => this.setState({ isLoading: false }));
+      .finally(() => this.setState({ isLoading: false }))
+      .finally(() => {
+        window.scrollTo({
+          top: document.documentElement.scrollHeight,
+          behavior: 'smooth',
+        });
+      });
   };
 
   render() {
