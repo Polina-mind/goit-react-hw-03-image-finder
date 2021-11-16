@@ -8,7 +8,6 @@ const FetchGallery = ({ searchQuery = '', currentPage = 1, pageSize = 12 }) => {
   return fetch(url)
     .then(response => response.json())
     .then(({ hits }) => {
-      // console.log(hits);
       currentPage += 1;
       return hits;
     })

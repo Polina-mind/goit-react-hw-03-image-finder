@@ -6,12 +6,6 @@ import './App.css';
 
 class App extends Component {
   state = {
-    query: '',
-    gallery: [],
-    currentPage: 1,
-    searchQuery: '',
-    isLoading: false,
-    error: null,
     showModal: false,
     largeImageURL: '',
   };

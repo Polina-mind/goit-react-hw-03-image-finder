@@ -6,6 +6,10 @@ import Button from './components/Button';
 import FetchGallery from './galleryApi';
 
 class GalleryView extends Component {
+  static propTypes = {
+    openModal: PropTypes.func.isRequired,
+  };
+
   state = {
     query: '',
     gallery: [],
@@ -73,9 +77,5 @@ class GalleryView extends Component {
     );
   }
 }
-
-GalleryView.propTypes = {
-  openModal: PropTypes.func.isRequired,
-};
 
 export default GalleryView;
