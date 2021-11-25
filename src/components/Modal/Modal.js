@@ -5,6 +5,7 @@ import './Modal.css';
 export default class Modal extends Component {
   static propTypes = {
     onClose: PropTypes.func.isRequired,
+    children: PropTypes.node.isRequired,
   };
 
   componentDidMount() {
